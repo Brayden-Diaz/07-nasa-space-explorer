@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA APOD Gallery</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Link to the CSS file for styling -->
+</head>
+<body>
+    <header>
+        <h1>NASA Astronomy Picture of the Day Gallery</h1>
+        <div>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate">
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate">
+            <button id="fetchImages">Get Space Images</button>
+        </div>
+    </header>
+    
+    <main>
+        <div id="loadingMessage" class="hidden">Loading images, please wait...</div> <!-- Loading message -->
+        <section id="gallery"></section> <!-- Gallery section for displaying images -->
+    </main>
+
+    <div id="modal" class="modal hidden"> <!-- Modal for displaying larger images -->
+        <span class="close" id="closeModal">&times;</span>
+        <img id="modalImage" src="" alt="">
+        <div id="modalCaption"></div>
+    </div>
+
+    <script src="js/api.js"></script> <!-- Link to the API script -->
+    <script src="js/gallery.js"></script> <!-- Link to the gallery script -->
+    <script src="js/modal.js"></script> <!-- Link to the modal script -->
+    <script src="js/dateRange.js"></script> <!-- Link to the date range script -->
+    <script src="js/script.js"></script> <!-- Link to the main script -->
+</body>
+</html>
