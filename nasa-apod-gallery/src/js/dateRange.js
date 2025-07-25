@@ -1,7 +1,7 @@
 // filepath: /nasa-apod-gallery/nasa-apod-gallery/src/js/dateRange.js
 
 // This function initializes the date picker inputs for selecting a date range
-export const setupDateInputs = (startInput, endInput) => {
+const setupDateInputs = (startInput, endInput) => {
     // Set default start date to 9 days ago
     const today = new Date();
     const nineDaysAgo = new Date(today);

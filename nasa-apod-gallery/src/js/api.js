@@ -1,13 +1,13 @@
 // filepath: /nasa-apod-gallery/nasa-apod-gallery/src/js/api.js
 
 // This function fetches data from NASA's APOD API based on the selected date range
-const fetchAPODData = async (startDate, endDate) => {
+window.fetchAPODData = async (startDate, endDate) => {
     const API_KEY = 'cxVrXBP4z8XG7u7mxiwnJigLfXrBHSd9TxMlo2pk';
     const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&start_date=${startDate}&end_date=${endDate}`;
 
     try {
         // Show loading message while fetching data
-        document.getElementById('loadingMessage').style.display = 'block';
+        // document.getElementById('loadingMessage').style.display = 'block';
 
         // Fetch data from the API
         const response = await fetch(url);
@@ -23,9 +23,6 @@ const fetchAPODData = async (startDate, endDate) => {
         return [];
     } finally {
         // Hide loading message after fetching data
-        document.getElementById('loadingMessage').style.display = 'none';
+        // document.getElementById('loadingMessage').style.display = 'none';
     }
 };
-
-// Export the fetchAPODData function for use in other modules
-export { fetchAPODData };

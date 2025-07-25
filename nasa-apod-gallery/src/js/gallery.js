@@ -2,7 +2,7 @@
 
 // This function generates a gallery of space images
 // It takes the fetched data as an argument
-export const createGallery = (data) => {
+const createGallery = (data) => {
     // Find the gallery container in the HTML
     const galleryContainer = document.getElementById('gallery');
     
@@ -37,3 +37,13 @@ export const createGallery = (data) => {
         galleryContainer.appendChild(imageDiv);
     });
 };
+
+window.displayImages = function(data) {
+    // Check if the data is an array and has items
+    if (Array.isArray(data) && data.length > 0) {
+        createGallery(data); // Call the function to create the gallery
+    } else {
+        const galleryContainer = document.getElementById('gallery');
+        galleryContainer.innerHTML = '<p>No images found for the selected date range.</p>'; // Display a message if no images are found
+    }
+}

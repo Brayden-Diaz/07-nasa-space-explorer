@@ -34,7 +34,6 @@ const handleFetchImages = async () => {
 };
 
 // Add event listener to the fetch button
-fetchButton.addEventListener('click', handleFetchImages);
 
 // Function to update the gallery with fetched data
 const updateGallery = (data) => {
@@ -49,3 +48,23 @@ const updateGallery = (data) => {
         gallery.appendChild(imageElement); // Add the image element to the gallery
     });
 };
+window.onload = () => {
+   document.querySelector('button').addEventListener('click', async () => {
+      const startDate = document.getElementById('startDate').value;
+      const endDate = document.getElementById('endDate').value;
+
+      if (!startDate || !endDate) {
+        alert('Please select both start and end dates.');
+        return;
+      }
+
+      try {
+        const images = await window.fetchAPODData(startDate, endDate);
+        console.log(images)
+        window.displayImages(images);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        alert('Failed to fetch data. Please try again later.');
+      }
+    });
+  }
